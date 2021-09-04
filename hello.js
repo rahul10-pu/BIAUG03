@@ -22,3 +22,13 @@ console.log(data)
 // console.log("true")
 // console.log("false")
 // console.log("12")
+var undefined=10
+console.log(undefined)
+var a=10
+var b=12
+console.log(a+b)
+console.log(a-b)
+console.log(a*b)
+console.log(a/b)
+console.log(a%b)
+console.log(a**b)
