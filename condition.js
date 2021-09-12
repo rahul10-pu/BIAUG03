@@ -101,13 +101,26 @@ if(""){
 // }else{
 //     console.log(66)
 // }
-var m="nov"
-if(m=="feb"){
-    console.log(m+" has 28 days")
+// var m="nov"
+// if(m=="feb"){
+//     console.log(m+" has 28 days")
+// }
+
+// if(m=="jan" || m=="mar" || m=="may" || m=="jul" || m=="aug" || m=="oct" || m=="dec"  ){
+//     console.log(m+" has 31 days")
+// }else if(m=="apr" || m=="jun" || m=="sep" || m=="nov" ){
+//     console.log(m+" has 30 days")
+// }
+
+var age=10
+var nationlity="indian"
+
+if(age>18){
+    if(nationlity=="indian"){
+        console.log("All good")
+    }
 }
 
-if(m=="jan" || m=="mar" || m=="may" || m=="jul" || m=="aug" || m=="oct" || m=="dec"  ){
-    console.log(m+" has 31 days")
-}else if(m=="apr" || m=="jun" || m=="sep" || m=="nov" ){
-    console.log(m+" has 30 days")
+if(age>18 || nationlity=="indian"){
+    console.log("All good")
 }
