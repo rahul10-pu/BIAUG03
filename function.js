@@ -51,10 +51,77 @@
 // var a="rahul"
 // console.log(a)
 
-var a = 10
-function rand(){
-     a="rahul"
-    console.log(a)
+// var a = 10
+// function rand(){
+//      a="rahul"
+//     console.log(a)
+// }
+// function print(msg){
+//     msg()
+// }
+// print(rand)
+// rand() //calling a rand function
+// var newrand=rand //first-class function in JS
+// console.log("______________")
+// newrand()//calling a rand function
+// console.log(a)
+
+// function print(msg){
+//     msg()
+// }
+// print(rand)
+
+// function print1(q,w){
+//     q(w)
+//     q("12")
+// }
+// print1(console.log, "13")
+
+// var a = 10
+// function rand(){
+//      a="rahul"
+//     console.log(a)
+// }
+
+
+// var rand=function (){
+//     a="14"
+//    console.log(a)
+// }
+// var rand = ()=>{
+//     a="15"
+//    console.log(a)
+// }
+// function print(msg){
+//     msg()
+// }
+// var print=(msg)=>{
+//     var f=msg
+//     f()
+// }
+// print(rand)
+// var t=print
+// t(rand)
+// print(function (){
+//     a="14"
+//    console.log(a)
+// })
+
+
+function getAge(){
+    for( i=0;i<10;i=i+2){
+        if(i==8){
+            return 20
+        }
+        console.log(i)
+    }
+    if(1<10){
+        return 30
+    }
+    console.log(60)
+    // console.log(1)
+    // return 12
+    // console.log(13)
+ 
 }
-rand()
-console.log(a)
+console.log(getAge())
