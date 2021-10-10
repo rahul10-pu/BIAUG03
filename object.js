@@ -95,4 +95,35 @@ var emp={
     }
 }
 emp.printEmpDetails()
+// class Employee{
+//     //this function will help the class to get initialized with the specefic data
+//     //for the attributes/entity/proprty
+//     constructor(id, name){
+//         this.id=id
+//         this.name=name
+//     }
+//     //method
+//     printEmpDetails(){
+//         console.log("Employee Name: "+this.name)
+//         console.log("Employee ID: "+this.id)
+//     }
+// }
+class Employee{
+    //this function will help the class to get initialized with the specefic data
+    //for the attributes/entity/proprty
+   
+    //method
+    printEmpDetails(){
+        console.log("Employee Name: "+this.name)
+        console.log("Employee ID: "+this.id)
+    }
+}
 
+// var emp1=new Employee(1,"Jayesh")
+// var emp2=new Employee(2,"Murali")
+// var emp3=new Employee(3,"Vasanth")
+var emp1=new Employee()
+emp1.id=3
+emp1.name="Jayesh"
+
+emp1.printEmpDetails()
