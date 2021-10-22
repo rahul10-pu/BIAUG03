@@ -108,7 +108,8 @@ emp.printEmpDetails()
 //         console.log("Employee ID: "+this.id)
 //     }
 // }
-class Employee{
+
+class Employee{  //declaring the class
     //this function will help the class to get initialized with the specefic data
     //for the attributes/entity/proprty
    
@@ -122,8 +123,10 @@ class Employee{
 // var emp1=new Employee(1,"Jayesh")
 // var emp2=new Employee(2,"Murali")
 // var emp3=new Employee(3,"Vasanth")
-var emp1=new Employee()
+//declaration of the class is always before the using of it.
+var emp1=new Employee() //using the class to create an object
 emp1.id=3
 emp1.name="Jayesh"
 
 emp1.printEmpDetails()
+//can we create 2 class with the sane name?
