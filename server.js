@@ -32,3 +32,6 @@ const server=http.createServer((request, response)=>{
 
  }) //http://localhost:8080/
 server.listen(8080)
+// {
+//     "key: string":"value: string, number, boolean, json"
+// }

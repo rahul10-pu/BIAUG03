@@ -1,20 +1,23 @@
 {
-  "name": "BIAUG03",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "",
+  "version": "0.0.1",
+  "description": "A basic demo application",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rahul10-pu/BIAUG03.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rahul Kumar",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rahul10-pu/BIAUG03/issues"
   },
-  "homepage": "https://github.com/rahul10-pu/BIAUG03#readme"
+  "homepage": "https://github.com/rahul10-pu/BIAUG03#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
