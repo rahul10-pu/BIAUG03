@@ -1,5 +1,6 @@
 const http = require('http')
 const url=require('url')
+const server=require('./controller/home.js')
 // console.log("I am trying to print http object")
 // console.log(http)
 // const homeApi=function(request, response){
@@ -8,29 +9,8 @@ const url=require('url')
 //     response.end()
 // }
 
-const server=http.createServer((request, response)=>{
-    if(request.method=='GET'){
-     response.write("Gotcha,, you did a get request")
-     response.end()
-    }
-    if(request.method=='POST'){
-     response.write("Gotcha,, you did a post request")
-     response.end()
-    }
-    if(request.method=='DELETE'){
-     response.write("Gotcha,, you did a delete request")
-     response.end()
-    }
-    if(request.method=='PUT'){
-     response.write("Gotcha,, you did a put request")
-     response.end()
-    }
-    if(request.method=='PATCH'){
-     response.write("Gotcha,, you did a patch request")
-     response.end()
-    }
-
- }) //http://localhost:8080/
+ //http://localhost:8080/ - homepage
+ // http://localhost:8080/user - userAPI
 server.listen(8080)
 // {
 //     "key: string":"value: string, number, boolean, json"
