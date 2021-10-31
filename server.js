@@ -19,5 +19,6 @@ express.get("/",(req, res)=>{
 
 express.use("/user",userRouter)
 express.use("/tutorial",tutorialRouter)
-
+//loosly-coupling
+// tightly coupled - dev
 express.listen(PORT)
