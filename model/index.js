@@ -1,0 +1,9 @@
+const { builtinModules } = require("module")
+const mongoose=require("mongoose")
+const dbConfig=require("../config/db.tutorial.config")
+mongoose.Promise=global.Promise
+const db={} //consolidate all the requirements here in db objeect
+db.mongoose=mongoose //lib
+db.url=dbConfig.url 
+db.tutorial=require("./tutorial.js")(mongoose)
+module.exports=db
