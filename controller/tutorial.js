@@ -1,6 +1,6 @@
-const db = require("../model/index.js")
+import db from  '../model/index.js' //const db = require("../model/index.js")
 const Tutorial=db.tutorial
-module.exports.getAllTutorials=(req, res)=>{
+export const getAllTutorials=(req, res)=>{
     Tutorial.find().then(
         result=>{
             res.status(200).send(result)
@@ -11,7 +11,7 @@ module.exports.getAllTutorials=(req, res)=>{
         }
     )
 }
-module.exports.getTutorialByID=(req, res)=>{
+export const getTutorialByID=(req, res)=>{
     const id=req.params.id
     Tutorial.findById(id).then(
         result=>{
@@ -23,7 +23,7 @@ module.exports.getTutorialByID=(req, res)=>{
         }
     )
 }
-module.exports.createTutorial=(req, res)=>{ //post  in req.body
+export const createTutorial=(req, res)=>{ //post  in req.body
     const tutorial= new Tutorial({
         title:req.body.title,
         description:req.body.description,
@@ -39,7 +39,7 @@ module.exports.createTutorial=(req, res)=>{ //post  in req.body
         }
     )
 }
-module.exports.deleteAllTutorials=(req, res)=>{
+export const deleteAllTutorials=(req, res)=>{
     Tutorial.deleteMany({}).then(
         result=>{
             res.status(200).send(result)
@@ -50,7 +50,7 @@ module.exports.deleteAllTutorials=(req, res)=>{
         }
     )
 }
-module.exports.deleteTutorialsByID=(req, res)=>{
+export const deleteTutorialsByID=(req, res)=>{
     const id=req.params.id //either that id exist or that id don't exist
     // if id exist then delete it and if not then throw error as 404 in response
     Tutorial.findByIdAndRemove(id).then(
@@ -68,7 +68,7 @@ module.exports.deleteTutorialsByID=(req, res)=>{
         }
     )
 }
-module.exports.updateTutorialByID=(req, res)=>{
+export const updateTutorialByID=(req, res)=>{
     const id=req.params.id 
     Tutorial.findByIdAndUpdate(id, req.body).then(
         result=>{
@@ -80,6 +80,6 @@ module.exports.updateTutorialByID=(req, res)=>{
         }
     )
 }
-module.exports.updateTitle=(req, res)=>{
+export const updateTitle=(req, res)=>{
     res.send("hi")
 }

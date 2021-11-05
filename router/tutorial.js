@@ -1,4 +1,5 @@
-const router=require("express").Router()
+import { Router } from 'express'
+const router=Router()
 /**
  * api/tutorials - GET -get all the tutorials - http://localhost:8080/api/tutorials
  * api/tutorials/:id - GET - get the tutorial by ID
@@ -8,12 +9,12 @@ const router=require("express").Router()
  * api/tutorial/id - PUT - update tutorial based on ID
  * api/tutorial/title - patch - update title 
  */
-const tutorial=require("../controller/tutorial.js")
-router.get("/", tutorial.getAllTutorials)
-router.get("/:id", tutorial.getTutorialByID)
-router.post("/", tutorial.createTutorial)
-router.delete("/", tutorial.deleteAllTutorials)
-router.delete("/:id", tutorial.deleteTutorialsByID)
-router.put("/:id", tutorial.updateTutorialByID)
-router.patch("/:title", tutorial.updateTitle)
-module.exports=router
+ import {getAllTutorials,getTutorialByID,createTutorial,deleteAllTutorials,deleteTutorialsByID,updateTutorialByID,updateTitle} from '../controller/tutorial.js'// const tutorial=require("../controller/tutorial.js")
+router.get("/", getAllTutorials)
+router.get("/:id", getTutorialByID) //http://localhost:8080/tutorial/3123123124 - GET
+router.post("/", createTutorial)
+router.delete("/", deleteAllTutorials)
+router.delete("/:id", deleteTutorialsByID)
+router.put("/:id", updateTutorialByID)
+router.patch("/:title", updateTitle)
+export  default router

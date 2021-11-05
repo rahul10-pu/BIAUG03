@@ -1,7 +1,7 @@
-const express=require("express")
+import express from 'express' // const express=require("express")
 const app=express()
-const tutorialRouter=require("./router/tutorial.js")
-const db=require("./model/index.js")
+import tutorialRouter from './router/tutorial.js' //const tutorialRouter=require("./router/tutorial.js")
+import db from "./model/index.js"//const db=require("./model/index.js")
 app.use(express.json())
 
 db.mongoose.connect(db.url,{useNewUrlParser:true,useUnifiedTopology:true}).then(

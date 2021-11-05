@@ -1,5 +1,5 @@
 
-module.exports = mongoose=> {
+const tutorial= (mongoose)=> {
     const TutorialSchema=mongoose.model("tutorial",mongoose.Schema(
         {
             title: String,
@@ -11,3 +11,4 @@ module.exports = mongoose=> {
     ))
     return TutorialSchema
 }
+export default tutorial
