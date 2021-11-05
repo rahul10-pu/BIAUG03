@@ -12,7 +12,16 @@ module.exports.getAllTutorials=(req, res)=>{
     )
 }
 module.exports.getTutorialByID=(req, res)=>{
-    res.send("hi")
+    const id=req.params.id
+    Tutorial.findById(id).then(
+        result=>{
+            res.status(200).send(result)
+        }
+    ).catch(
+        err=>{
+            res.status(500).send(err)
+        }
+    )
 }
 module.exports.createTutorial=(req, res)=>{ //post  in req.body
     const tutorial= new Tutorial({
@@ -31,13 +40,45 @@ module.exports.createTutorial=(req, res)=>{ //post  in req.body
     )
 }
 module.exports.deleteAllTutorials=(req, res)=>{
-    res.send("hi")
+    Tutorial.deleteMany({}).then(
+        result=>{
+            res.status(200).send(result)
+        }
+    ).catch(
+        err=>{
+            res.status(500).send(err)
+        }
+    )
 }
 module.exports.deleteTutorialsByID=(req, res)=>{
-    res.send("hi")
+    const id=req.params.id //either that id exist or that id don't exist
+    // if id exist then delete it and if not then throw error as 404 in response
+    Tutorial.findByIdAndRemove(id).then(
+        result=>{
+            if(!result){
+                res.status(404).send("Id not found")
+            }else{
+                res.status(200).send(result)
+            }
+            
+        }
+    ).catch(
+        err=>{
+            res.status(500).send(err)
+        }
+    )
 }
 module.exports.updateTutorialByID=(req, res)=>{
-    res.send("hi")
+    const id=req.params.id 
+    Tutorial.findByIdAndUpdate(id, req.body).then(
+        result=>{
+            res.send(result)
+        }
+    ).catch(
+        err=>{
+            res.status(500).send(err)
+        }
+    )
 }
 module.exports.updateTitle=(req, res)=>{
     res.send("hi")
