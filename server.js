@@ -4,6 +4,7 @@ import tutorialRouter from './router/tutorial.js' //const tutorialRouter=require
 import db from "./model/index.js"//const db=require("./model/index.js")
 app.use(express.json())
 import userRouter from './router/user.js' 
+import authRouter from './router/auth.js'
 import pgdb from "./model/postgres/index.js"
 pgdb.sequelize.sync({force:true}).then(
     result=>{
@@ -34,6 +35,7 @@ app.get("/",(req,res)=>{
 })  // http://localhost:8080
 app.use("/api/tutorials",tutorialRouter)
 app.use("/api/users",userRouter)
+app.use("/api/",authRouter)
 
 // http://localhost:8080/api/tutorials
 /**

@@ -9,17 +9,16 @@ const router=Router()
  * api/user/id - PUT - update user based on ID
  * api/user/title - patch - update title 
  */
-// import {getAllUsers,getUserByID,createUser,deleteAllUsers,deleteUsersByID,signin,updateUserByID,updateUsername} from '../controller/user.js'// const user=require("../controller/user.js")
-// router.get("/", getAllUsers)
-// router.get("/:id", getUserByID) //http://localhost:8080/user/3123123124 - GET
-// router.post("/", createUser)
-// router.delete("/", deleteAllUsers)
-// router.delete("/:id", deleteUsersByID)
-// router.put("/:id", updateUserByID)
-// router.patch("/:title", updateUsername)
-import {createUser,signin} from '../controller/user.js'// const user=require("../controller/user.js")
-router.post("/signup", createUser)
-router.post("/signin", signin)
+// import {getAllUsers,getUserByID,createUser,deleteAllUsers,deleteUsersByID,updateUserByID,updateUsername} from '../controller/user.js'// const user=require("../controller/user.js")
+// // router.get("/", getAllUsers)
+// // router.get("/:id", getUserByID) //http://localhost:8080/user/3123123124 - GET
+// // router.post("/", createUser)
+// // router.delete("/", deleteAllUsers)
+// // router.delete("/:id", deleteUsersByID)
+// // router.put("/:id", updateUserByID)
+// // router.patch("/:title", updateUsername)
+// router.post("/signup", createUser)
+// router.post("/signin", signin)
 
 export  default router
 
