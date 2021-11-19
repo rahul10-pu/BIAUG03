@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rahul10-pu/BIAUG03#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
     "pg": "^8.7.1",
     "sequelize": "^6.9.0"
