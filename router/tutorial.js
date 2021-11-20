@@ -9,9 +9,10 @@ const router=Router()
  * api/tutorial/id - PUT - update tutorial based on ID
  * api/tutorial/title - patch - update title 
  */
+import { validateToken,isAdmin} from '../middleware/authJWT.js'
  import {getAllTutorials,getTutorialByID,createTutorial,deleteAllTutorials,deleteTutorialsByID,updateTutorialByID,updateTitle} from '../controller/tutorial.js'// const tutorial=require("../controller/tutorial.js")
-router.get("/", getAllTutorials)
-router.get("/:id", getTutorialByID) //http://localhost:8080/tutorial/3123123124 - GET
+router.get("/",[validateToken,isAdmin], getAllTutorials)
+router.get("/:id",[validateToken], getTutorialByID) //http://localhost:8080/tutorial/3123123124 - GET
 router.post("/", createTutorial)
 router.delete("/", deleteAllTutorials)
 router.delete("/:id", deleteTutorialsByID)

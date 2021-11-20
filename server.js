@@ -6,8 +6,21 @@ app.use(express.json())
 import userRouter from './router/user.js' 
 import authRouter from './router/auth.js'
 import pgdb from "./model/postgres/index.js"
+const Role=pgdb.roles
 pgdb.sequelize.sync({force:true}).then(
     result=>{
+        Role.create({
+            id:1,
+            name:"user"
+        })
+        Role.create({
+            id:2,
+            name:"admin"
+        })
+        Role.create({
+            id:3,
+            name:"moderator"
+        })
         console.log("Yeeee..my application got connected to postgres server")
     }
 ).catch(

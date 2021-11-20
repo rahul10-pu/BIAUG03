@@ -4,18 +4,46 @@
  * use token for all other api calls which need authentication
  * for API if we don't need authentication we can call them without token.
  */
+import bcryptjs from 'bcryptjs'
 import db from  '../model/postgres/index.js' //const db = require("../model/index.js")
  const User=db.user 
+ const Role=db.roles
  import jwt from 'jsonwebtoken'
+ const Op=db.Sequelize.Op
 export const signup=(req, res)=>{ //post  in req.body
     const user=new User({
         username:req.body.username,
-        password:req.body.password,
+        password:bcryptjs.hashSync(req.body.password,8),  //1st prob : the actual passsword is getting saved in the db
         emailID:req.body.emailid
     })
     user.save().then(
-      result=>{
-          res.send(result)
+      user=>{
+          if(req.body.role){
+            Role.findAll({
+                where:{
+                    name:{
+                        [Op.or]:req.body.role
+                    }
+                }
+            }).then(
+                roles=>{
+                    user.setRoles(roles).then(
+                        ()=>{
+                            res.send("User got registered with desired role")
+                        }
+                    ).catch(
+                        err=>{
+                            res.status(500).send(err)
+                        }
+                    )
+                }
+            ).catch(
+                err=>{
+                    res.status(500).send(err)
+                }
+            )
+          }
+          res.send(user)
       }
   ).catch(
       err=>{
@@ -35,7 +63,9 @@ export const signup=(req, res)=>{ //post  in req.body
                 })
             }
             //2.
-            if(user.password!=req.body.password){
+            var isPasswordValid=bcryptjs.compareSync(req.body.password,user.password)
+
+            if(!isPasswordValid){
                 return res.status(401).send({
                     message:"Password Incorrect"
                 }) 
@@ -51,3 +81,7 @@ export const signup=(req, res)=>{ //post  in req.body
     )
     .catch()
   }
+  //middleware - just a function
+  //server -> router -> controller
+  //use middleware
+    // server -> router -> middleware function -> controller
