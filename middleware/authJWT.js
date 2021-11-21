@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import db from '../model/postgres/index.js'
+import role from '../model/postgres/role.js'
 const User = db.user
 export const validateToken=(req,res,next)=>{
     var token=req.headers["token"]
@@ -19,9 +20,11 @@ export const isAdmin=(req,res,next)=>{
         user=>{
              user.getRoles().then(
                  roles=>{
+                     console.log(roles)
                      for(let i=0;i<roles.length;i++){
-                         if(roles[i]=="admin"){
+                         if(roles[i].dataValues.name=="admin"){
                              next()
+                             return
                          }
                      }
                      res.status(403).send("User is not admin")
